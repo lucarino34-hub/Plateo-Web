@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ["var(--font-poppins)", "sans-serif"],
         poppins: ["var(--font-poppins)", "sans-serif"],
         bodoni: ["var(--font-bodoni)", "serif"],
       },
