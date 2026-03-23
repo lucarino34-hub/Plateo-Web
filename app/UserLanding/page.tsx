@@ -205,8 +205,8 @@ export default function UserLanding() {
       setTimeout(() => {
         setCarouselIndex((prev) => (prev + 1) % carouselTexts.length);
         setAnimating(false);
-      }, 400);
-    }, 3000);
+      }, 600);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -251,7 +251,7 @@ export default function UserLanding() {
           <h1 className="font-poppins text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6">
             Di adiós a{" "}
             <span
-              className={`text-primary inline-block transition-all duration-400 ${animating ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"}`}
+              className={`text-primary inline-block transition-all duration-600 ${animating ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"}`}
             >
               {carouselTexts[carouselIndex]}
             </span>
