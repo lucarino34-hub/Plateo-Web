@@ -108,88 +108,123 @@ function FeatureCards() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-[hsl(var(--background))] pt-20"
-      style={{ height: "250vh" }}
-    >
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4">
-        <h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-8">
+    <>
+      {/* Desktop: scroll-driven cards */}
+      <section
+        ref={sectionRef}
+        className="relative bg-[hsl(var(--background))] pt-20 hidden md:block"
+        style={{ height: "250vh" }}
+      >
+        <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4">
+          <h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-8">
+            ¿Qué hay en Plateo?
+          </h2>
+
+          <div className="w-full max-w-6xl flex flex-row gap-5" style={{ height: "600px" }}>
+            {featureCards.map((card, i) => (
+              <div
+                key={i}
+                ref={(el) => { cardRefs.current[i] = el; }}
+                className={`${card.bg} rounded-3xl border-[3px] border-slate-900 overflow-hidden will-change-[flex] relative`}
+                style={{ flex: i === 0 ? 5 : 1 }}
+              >
+                {card.bgImage && (
+                  <Image
+                    src={card.bgImage}
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
+                )}
+
+                <div
+                  ref={(el) => { titleRefs.current[i] = el; }}
+                  className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
+                >
+                  <span
+                    data-v-title
+                    className={`font-poppins text-4xl md:text-5xl font-extrabold whitespace-nowrap ${card.titleColor}`}
+                    style={{
+                      writingMode: "vertical-lr",
+                      transform: "rotate(180deg)",
+                      opacity: i === 0 ? 0 : 1,
+                    }}
+                  >
+                    {card.title}
+                  </span>
+                </div>
+
+                <div className="h-full p-8 md:p-10 flex flex-col justify-between relative z-10">
+                  <span
+                    data-h-title
+                    className="font-poppins text-4xl md:text-5xl lg:text-6xl font-extrabold block leading-none tracking-tight text-slate-900"
+                    style={{ opacity: i === 0 ? 1 : 0 }}
+                  >
+                    {card.title}
+                  </span>
+
+                  <div
+                    ref={(el) => { contentRefs.current[i] = el; }}
+                    className="flex flex-col justify-between flex-1 mt-3 will-change-[opacity,transform]"
+                    style={{ opacity: i === 0 ? 1 : 0 }}
+                  >
+                    <p className="text-xl md:text-2xl leading-snug max-w-lg text-slate-600">
+                      {card.description}
+                    </p>
+                    {card.image && (
+                      <div className="flex justify-center mt-auto">
+                        <Image
+                          src={card.image}
+                          alt={card.imageAlt}
+                          width={500}
+                          height={500}
+                          className="w-72 h-72 md:w-96 md:h-96 object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile: stacked cards */}
+      <section className="bg-[hsl(var(--background))] py-16 px-4 md:hidden">
+        <h2 className="font-poppins text-3xl font-bold text-center text-slate-900 mb-8">
           ¿Qué hay en Plateo?
         </h2>
-
-        <div className="w-full max-w-6xl flex flex-row gap-5" style={{ height: "600px" }}>
+        <div className="flex flex-col gap-6 max-w-sm mx-auto">
           {featureCards.map((card, i) => (
             <div
               key={i}
-              ref={(el) => { cardRefs.current[i] = el; }}
-              className={`${card.bg} rounded-3xl border-[3px] border-slate-900 overflow-hidden will-change-[flex] relative`}
-              style={{ flex: i === 0 ? 5 : 1 }}
+              className={`${card.bg} rounded-2xl border-[3px] border-slate-900 overflow-hidden`}
             >
-              {/* Background image for cards that have one */}
-              {card.bgImage && (
-                <Image
-                  src={card.bgImage}
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-              )}
-
-              {/* Vertical title — centered in card when collapsed */}
-              <div
-                ref={(el) => { titleRefs.current[i] = el; }}
-                className="absolute inset-0 z-30 flex items-center justify-center pointer-events-none"
-              >
-                <span
-                  data-v-title
-                  className={`font-poppins text-4xl md:text-5xl font-extrabold whitespace-nowrap ${card.titleColor}`}
-                  style={{
-                    writingMode: "vertical-lr",
-                    transform: "rotate(180deg)",
-                    opacity: i === 0 ? 0 : 1,
-                  }}
-                >
+              <div className="p-6 flex flex-col gap-4">
+                <span className={`font-poppins text-2xl font-extrabold leading-none tracking-tight ${card.titleColor}`}>
                   {card.title}
                 </span>
-              </div>
-
-              {/* Expanded content */}
-              <div className="h-full p-8 md:p-10 flex flex-col justify-between relative z-10">
-                <span
-                  data-h-title
-                  className="font-poppins text-4xl md:text-5xl lg:text-6xl font-extrabold block leading-none tracking-tight text-slate-900"
-                  style={{ opacity: i === 0 ? 1 : 0 }}
-                >
-                  {card.title}
-                </span>
-
-                <div
-                  ref={(el) => { contentRefs.current[i] = el; }}
-                  className="flex flex-col justify-between flex-1 mt-3 will-change-[opacity,transform]"
-                  style={{ opacity: i === 0 ? 1 : 0 }}
-                >
-                  <p className="text-xl md:text-2xl leading-snug max-w-lg text-slate-600">
-                    {card.description}
-                  </p>
-                  {card.image && (
-                    <div className="flex justify-center mt-auto">
-                      <Image
-                        src={card.image}
-                        alt={card.imageAlt}
-                        width={500}
-                        height={500}
-                        className="w-72 h-72 md:w-96 md:h-96 object-contain"
-                      />
-                    </div>
-                  )}
-                </div>
+                <p className="text-base leading-snug text-slate-600">
+                  {card.description}
+                </p>
+                {card.image && (
+                  <div className="flex justify-center">
+                    <Image
+                      src={card.image}
+                      alt={card.imageAlt}
+                      width={300}
+                      height={300}
+                      className="w-48 h-48 object-contain"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
@@ -248,7 +283,7 @@ export default function UserLanding() {
             unoptimized
           />
 
-          <h1 className="font-poppins text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6">
+          <h1 className="font-poppins text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6">
             Di adiós a{" "}
             <span
               className={`text-primary inline-block transition-all duration-600 ${animating ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"}`}
@@ -257,7 +292,7 @@ export default function UserLanding() {
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl lg:text-3xl text-white font-bold mb-10 whitespace-nowrap">
+          <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white font-bold mb-10">
             Reserva en minutos. Llega a mesa puesta y disfruta.
           </p>
 
@@ -305,22 +340,22 @@ export default function UserLanding() {
       <FeatureCards />
 
       {/* ── Benefits Section ── */}
-      <section className="py-24 bg-white">
+      <section className="py-12 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-3">
+          <h2 className="font-poppins text-3xl sm:text-5xl md:text-7xl font-bold text-center text-slate-900 mb-3">
             Únete a Plateo ↓
           </h2>
-          <p className="text-center text-muted-foreground text-lg mb-16">
+          <p className="text-center text-muted-foreground text-base md:text-lg mb-8 md:mb-16">
             Pre-launch en Madrid · Menos espera. Más disfrute.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Benefit 1 */}
             <a href="#cta-section" className="group border-2 border-black rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
-              <div className="p-8 pb-6 flex-1">
+              <div className="p-5 md:p-8 pb-4 md:pb-6 flex-1">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="mb-5">
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F97316" />
                 </svg>
-                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-3 leading-tight">Tu tiempo vale más que una cola.</h3>
+                <h3 className="font-bold text-xl md:text-3xl text-slate-900 mb-2 md:mb-3 leading-tight">Tu tiempo vale más que una cola.</h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-5">
                   Convierte la salida a comer en algo rápido y fluido, incluso en horas punta.
                 </p>
@@ -328,7 +363,7 @@ export default function UserLanding() {
                   Acceso anticipado para los primeros.
                 </p>
               </div>
-              <div className="h-56 overflow-hidden">
+              <div className="h-40 md:h-56 overflow-hidden">
                 <Image
                   src="/benefits/benefit.png"
                   alt="Tu tiempo vale más que una cola"
@@ -341,11 +376,11 @@ export default function UserLanding() {
 
             {/* Benefit 2 */}
             <a href="#cta-section" className="group border-2 border-black rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
-              <div className="p-8 pb-6 flex-1">
+              <div className="p-5 md:p-8 pb-4 md:pb-6 flex-1">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="mb-5">
                   <rect x="3" y="3" width="18" height="18" rx="5" fill="#22C55E" />
                 </svg>
-                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-3 leading-tight">Planes que salen bien.</h3>
+                <h3 className="font-bold text-xl md:text-3xl text-slate-900 mb-2 md:mb-3 leading-tight">Planes que salen bien.</h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-5">
                   Todo el mundo queda contento: menos indecisión, más risas y mesa sin estrés.
                 </p>
@@ -353,7 +388,7 @@ export default function UserLanding() {
                   Te avisamos en cuanto esté activo.
                 </p>
               </div>
-              <div className="h-56 overflow-hidden">
+              <div className="h-40 md:h-56 overflow-hidden">
                 <Image
                   src="/benefits/benefit2.png"
                   alt="Planes que salen bien"
@@ -366,11 +401,11 @@ export default function UserLanding() {
 
             {/* Benefit 3 */}
             <a href="#cta-section" className="group border-2 border-black rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
-              <div className="p-8 pb-6 flex-1">
+              <div className="p-5 md:p-8 pb-4 md:pb-6 flex-1">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="mb-5">
                   <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" fill="#8B5CF6" />
                 </svg>
-                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-3 leading-tight">Cuentas claras, sobremesa larga.</h3>
+                <h3 className="font-bold text-xl md:text-3xl text-slate-900 mb-2 md:mb-3 leading-tight">Cuentas claras, sobremesa larga.</h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-5">
                   Adiós al lío de pagar: una experiencia cómoda para grupos, equipos y comidas de trabajo.
                 </p>
@@ -378,7 +413,7 @@ export default function UserLanding() {
                   Apúntate a la beta y pruébalo antes.
                 </p>
               </div>
-              <div className="h-56 overflow-hidden">
+              <div className="h-40 md:h-56 overflow-hidden">
                 <Image
                   src="/benefits/benefit3.png"
                   alt="Cuentas claras, sobremesa larga"
@@ -393,16 +428,16 @@ export default function UserLanding() {
       </section>
 
       {/* ── CTA Signup ── */}
-      <section id="cta-section" className="py-24 bg-[#165132] overflow-hidden">
+      <section id="cta-section" className="py-14 md:py-24 bg-[#165132] overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-center md:text-left">
-            <h2 className="font-poppins text-[2.9375rem] md:text-[3.6875rem] font-black text-white mb-6 leading-tight">
+            <h2 className="font-poppins text-3xl sm:text-[2.9375rem] md:text-[3.6875rem] font-black text-white mb-4 md:mb-6 leading-tight">
               Consigue acceso<br />anticipado
             </h2>
             <p className="text-white/80 text-lg mb-2">
               Déjanos tu email y sé de los primeros en probar Plateo en Madrid.
             </p>
-            <p className="text-white/60 text-base mb-10">
+            <p className="text-white/60 text-sm md:text-base mb-6 md:mb-10">
               Lanzamiento + invitación a la beta + ventajas de early adopters.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
@@ -422,7 +457,7 @@ export default function UserLanding() {
               </button>
             </form>
           </div>
-          <div className="flex-1 flex justify-center pt-12">
+          <div className="flex-1 flex justify-center pt-8 md:pt-12">
             <div className="relative animate-float">
               {/* Notification badge */}
               <div className="absolute -top-10 right-0 md:-right-6 bg-white rounded-2xl shadow-lg px-4 py-2 flex items-center gap-2 z-10 animate-float-delayed">
@@ -437,7 +472,7 @@ export default function UserLanding() {
                 </div>
               </div>
               {/* Phone frame */}
-              <div className="relative w-[260px] md:w-[300px] rounded-[2.5rem] border-[6px] border-gray-900 bg-gray-900 shadow-2xl">
+              <div className="relative w-[220px] sm:w-[260px] md:w-[300px] rounded-[2rem] sm:rounded-[2.5rem] border-[5px] sm:border-[6px] border-gray-900 bg-gray-900 shadow-2xl">
                 <div className="rounded-[2rem] overflow-hidden">
                   <Image
                     src="/benefits/PLATEO.png"
@@ -454,9 +489,9 @@ export default function UserLanding() {
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-[#1a1a2e] text-slate-400 pt-16 pb-8">
-        <div className="max-w-4xl mx-auto px-8">
-          <div className="flex flex-col md:flex-row justify-between gap-12 items-start">
+      <footer className="bg-[#1a1a2e] text-slate-400 pt-10 md:pt-16 pb-8">
+        <div className="max-w-4xl mx-auto px-6 md:px-8">
+          <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-12 items-start">
             <div>
               <span className="text-2xl font-bold"><span className="text-[hsl(var(--primary))]">Pla</span><span className="text-[#b32e34]">teo</span></span>
               <p className="text-sm mt-4 max-w-md">
