@@ -16,6 +16,13 @@
 .animate-float-delayed {
   animation: float-delayed 4s ease-in-out infinite 0.5s;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 :root {
   --background: 30 20% 97%;

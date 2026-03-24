@@ -190,16 +190,16 @@ function FeatureCards() {
         </div>
       </section>
 
-      {/* Mobile: stacked cards */}
-      <section className="bg-[hsl(var(--background))] py-16 px-4 md:hidden">
-        <h2 className="font-poppins text-3xl font-bold text-center text-slate-900 mb-8">
+      {/* Mobile: horizontal carousel */}
+      <section className="bg-[hsl(var(--background))] py-16 md:hidden">
+        <h2 className="font-poppins text-3xl font-bold text-center text-slate-900 mb-8 px-4">
           ¿Qué hay en Plateo?
         </h2>
-        <div className="flex flex-col gap-6 max-w-sm mx-auto">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-4 pb-4 scrollbar-hide">
           {featureCards.map((card, i) => (
             <div
               key={i}
-              className={`${card.bg} rounded-2xl border-[3px] border-slate-900 overflow-hidden`}
+              className={`${card.bg} rounded-2xl border-[3px] border-slate-900 overflow-hidden flex-shrink-0 w-[80vw] snap-center`}
             >
               <div className="p-6 flex flex-col gap-4">
                 <span className={`font-poppins text-2xl font-extrabold leading-none tracking-tight ${card.titleColor}`}>
@@ -284,16 +284,17 @@ export default function UserLanding() {
           />
 
           <h1 className="font-poppins text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6">
-            Di adiós a{" "}
+            Di adiós a<br />
             <span
-              className={`text-primary inline-block transition-all duration-600 ${animating ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"}`}
+              className={`text-primary inline-block transition-all duration-600 whitespace-nowrap ${animating ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"}`}
             >
               {carouselTexts[carouselIndex]}
             </span>
           </h1>
 
           <p className="text-base sm:text-xl md:text-2xl lg:text-3xl text-white font-bold mb-10">
-            Reserva en minutos. Llega a mesa puesta y disfruta.
+            <span className="block md:inline">Reserva en minutos.</span>{" "}
+            <span className="block md:inline">Llega a mesa puesta y disfruta.</span>
           </p>
 
           {/* Email form in hero */}
