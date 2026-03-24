@@ -305,140 +305,184 @@ export default function UserLanding() {
       <FeatureCards />
 
       {/* ── Benefits Section ── */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="font-bodoni text-3xl md:text-4xl font-bold text-center text-slate-900 mb-2">
-            Únete a Plateo
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-3">
+            Únete a Plateo ↓
           </h2>
-          <p className="text-center text-muted-foreground mb-12">
+          <p className="text-center text-muted-foreground text-lg mb-16">
             Pre-launch en Madrid · Menos espera. Más disfrute.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Benefit 1 */}
-            <div className="bg-[hsl(var(--background))] rounded-2xl overflow-hidden hover:-translate-y-px hover:shadow-md transition-all duration-300">
-              <div className="h-48 overflow-hidden">
+            <a href="#cta-section" className="group border-2 border-black rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <div className="p-8 pb-6 flex-1">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="mb-5">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#F97316" />
+                </svg>
+                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-3 leading-tight">Tu tiempo vale más que una cola.</h3>
+                <p className="text-muted-foreground text-base leading-relaxed mb-5">
+                  Convierte la salida a comer en algo rápido y fluido, incluso en horas punta.
+                </p>
+                <p className="text-muted-foreground text-sm font-semibold transition-colors duration-300 group-hover:text-orange-500">
+                  Acceso anticipado para los primeros.
+                </p>
+              </div>
+              <div className="h-56 overflow-hidden">
                 <Image
                   src="/benefits/benefit.png"
                   alt="Tu tiempo vale más que una cola"
-                  width={400}
-                  height={192}
+                  width={500}
+                  height={280}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="font-semibold text-lg text-slate-900 mb-2">Tu tiempo vale más que una cola.</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Convierte la salida a comer en algo rápido y fluido. Sin esperas innecesarias.
-                </p>
-              </div>
-            </div>
+            </a>
 
             {/* Benefit 2 */}
-            <div className="bg-[hsl(var(--background))] rounded-2xl overflow-hidden hover:-translate-y-px hover:shadow-md transition-all duration-300">
-              <div className="h-48 overflow-hidden">
+            <a href="#cta-section" className="group border-2 border-black rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <div className="p-8 pb-6 flex-1">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="mb-5">
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="#22C55E" />
+                </svg>
+                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-3 leading-tight">Planes que salen bien.</h3>
+                <p className="text-muted-foreground text-base leading-relaxed mb-5">
+                  Todo el mundo queda contento: menos indecisión, más risas y mesa sin estrés.
+                </p>
+                <p className="text-muted-foreground text-sm font-semibold transition-colors duration-300 group-hover:text-orange-500">
+                  Te avisamos en cuanto esté activo.
+                </p>
+              </div>
+              <div className="h-56 overflow-hidden">
                 <Image
                   src="/benefits/benefit2.png"
                   alt="Planes que salen bien"
-                  width={400}
-                  height={192}
+                  width={500}
+                  height={280}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="font-semibold text-lg text-slate-900 mb-2">Planes que salen bien.</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Todo el mundo queda contento: menos indecisión, más risas.
-                </p>
-              </div>
-            </div>
+            </a>
 
             {/* Benefit 3 */}
-            <div className="bg-[hsl(var(--background))] rounded-2xl overflow-hidden hover:-translate-y-px hover:shadow-md transition-all duration-300">
-              <div className="h-48 overflow-hidden">
+            <a href="#cta-section" className="group border-2 border-black rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all duration-300 flex flex-col">
+              <div className="p-8 pb-6 flex-1">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="mb-5">
+                  <path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2z" fill="#8B5CF6" />
+                </svg>
+                <h3 className="font-bold text-2xl md:text-3xl text-slate-900 mb-3 leading-tight">Cuentas claras, sobremesa larga.</h3>
+                <p className="text-muted-foreground text-base leading-relaxed mb-5">
+                  Adiós al lío de pagar: una experiencia cómoda para grupos, equipos y comidas de trabajo.
+                </p>
+                <p className="text-muted-foreground text-sm font-semibold transition-colors duration-300 group-hover:text-orange-500">
+                  Apúntate a la beta y pruébalo antes.
+                </p>
+              </div>
+              <div className="h-56 overflow-hidden">
                 <Image
                   src="/benefits/benefit3.png"
                   alt="Cuentas claras, sobremesa larga"
-                  width={400}
-                  height={192}
+                  width={500}
+                  height={280}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="font-semibold text-lg text-slate-900 mb-2">Cuentas claras, sobremesa larga.</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Adiós al lío de pagar: una experiencia cómoda de principio a fin.
-                </p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
 
       {/* ── CTA Signup ── */}
-      <section id="signup" className="py-20 bg-[hsl(var(--background))]">
-        <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 flex justify-center">
-            <Image
-              src="/benefits/PLATEO.png"
-              alt="Plateo app"
-              width={400}
-              height={500}
-              className="max-w-xs md:max-w-sm"
-            />
-          </div>
+      <section id="cta-section" className="py-24 bg-[#165132] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-center md:text-left">
-            <h2 className="font-bodoni text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Consigue acceso anticipado
+            <h2 className="font-poppins text-[2.9375rem] md:text-[3.6875rem] font-black text-white mb-6 leading-tight">
+              Consigue acceso<br />anticipado
             </h2>
-            <p className="text-muted-foreground mb-2">
+            <p className="text-white/80 text-lg mb-2">
               Déjanos tu email y sé de los primeros en probar Plateo en Madrid.
             </p>
-            <p className="text-sm text-muted-foreground mb-8">
+            <p className="text-white/60 text-base mb-10">
               Lanzamiento + invitación a la beta + ventajas de early adopters.
             </p>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="tu@email.com"
-                className="flex-1 px-5 py-3 rounded-xl border border-border bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary transition"
+                placeholder="rodrigo.garcia@email.com"
+                className="flex-1 px-5 py-4 rounded-xl border border-white/30 bg-transparent text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/50 transition"
               />
               <button
                 type="submit"
-                className="bg-primary text-white font-semibold px-8 py-3 rounded-xl shadow-lg hover:opacity-90 active:scale-95 transition-all duration-150 whitespace-nowrap"
+                className="border-2 border-white text-white font-semibold px-8 py-4 rounded-xl hover:bg-white hover:text-[#165132] active:scale-95 transition-all duration-150 whitespace-nowrap"
               >
                 Apuntarme
               </button>
             </form>
           </div>
+          <div className="flex-1 flex justify-center pt-12">
+            <div className="relative animate-float">
+              {/* Notification badge */}
+              <div className="absolute -top-10 right-0 md:-right-6 bg-white rounded-2xl shadow-lg px-4 py-2 flex items-center gap-2 z-10 animate-float-delayed">
+                <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-medium">Pedido listo</p>
+                  <p className="text-sm font-bold text-slate-900 whitespace-nowrap">¡A disfrutar!</p>
+                </div>
+              </div>
+              {/* Phone frame */}
+              <div className="relative w-[260px] md:w-[300px] rounded-[2.5rem] border-[6px] border-gray-900 bg-gray-900 shadow-2xl">
+                <div className="rounded-[2rem] overflow-hidden">
+                  <Image
+                    src="/benefits/PLATEO.png"
+                    alt="Plateo app"
+                    width={300}
+                    height={650}
+                    className="w-full h-auto block"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* ── Footer ── */}
-      <footer className="bg-slate-900 text-slate-400 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="text-center md:text-left">
-              <span className="font-bodoni text-2xl font-bold text-white">Plateo</span>
-              <p className="text-sm mt-2">
+      <footer className="bg-[#1a1a2e] text-slate-400 pt-16 pb-8">
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="flex flex-col md:flex-row justify-between gap-12 items-start">
+            <div>
+              <span className="text-2xl font-bold"><span className="text-[hsl(var(--primary))]">Pla</span><span className="text-[#b32e34]">teo</span></span>
+              <p className="text-sm mt-4 max-w-md">
                 Transforma las operaciones de tu restaurante con reservas garantizadas y pedidos prepagados.
               </p>
               <a
                 href="mailto:info@plateo.es"
-                className="text-sm text-primary hover:underline mt-1 block"
+                className="text-sm text-slate-300 hover:text-white transition mt-3 inline-flex items-center gap-2"
               >
-                info@plateo.es
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 4L12 13 2 4" />
+                </svg>
+                <span className="font-bold">info@plateo.es</span>
               </a>
             </div>
-            <div className="flex flex-col sm:flex-row items-center gap-4 text-sm">
-              <a href="/privacy" className="hover:text-white transition">Política de Privacidad</a>
-              <a href="/terms" className="hover:text-white transition">Términos y Condiciones</a>
-              <a href="/cookies" className="hover:text-white transition">Política de Cookies</a>
+            <div>
+              <h4 className="text-white font-bold mb-4">Legal</h4>
+              <div className="flex flex-col gap-3 text-sm">
+                <a href="/privacy" className="hover:text-white transition">Privacy</a>
+                <a href="/terms" className="hover:text-white transition">T&C</a>
+                <a href="/cookies" className="hover:text-white transition">Cookies</a>
+              </div>
             </div>
           </div>
-          <div className="mt-8 pt-6 border-t border-slate-700 text-center text-xs">
+          <div className="mt-12 pt-6 border-t border-slate-600/50 text-center text-sm text-slate-500">
             © 2026 Plateo. Todos los derechos reservados.
           </div>
         </div>
