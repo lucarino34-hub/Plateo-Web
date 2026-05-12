@@ -115,9 +115,9 @@ function FeatureCards() {
         style={{ height: "250vh" }}
       >
         <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4">
-          /*<h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-8">
+          {/*<h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-8">
             This is PLATEO
-          </h2>*/
+          </h2>*/}
 
           <div className="w-full max-w-6xl flex flex-row gap-5" style={{ height: "600px" }}>
             {featureCards.map((card, i) => (
@@ -432,7 +432,7 @@ export default function UserLanding() {
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
           <div className="flex-1 text-center md:text-left">
             <h2 className="font-poppins text-3xl sm:text-[2.9375rem] md:text-[3.6875rem] font-black text-white mb-4 md:mb-6 leading-tight">
-              Consigue acceso<br />anticipado
+              Be the first<br />enjoying it
             </h2>
             <p className="text-white/80 text-lg mb-2">
               Déjanos tu email y sé de los primeros en probar Plateo en Madrid.
@@ -453,7 +453,7 @@ export default function UserLanding() {
                 type="submit"
                 className="border-2 border-white text-white font-semibold px-8 py-4 rounded-xl hover:bg-white hover:text-[#165132] active:scale-95 transition-all duration-150 whitespace-nowrap"
               >
-                Apuntarme
+                Count me in
               </button>
             </form>
           </div>
