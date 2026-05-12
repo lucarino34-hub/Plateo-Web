@@ -115,9 +115,9 @@ function FeatureCards() {
         style={{ height: "250vh" }}
       >
         <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4">
-          <h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-8">
+          /*<h2 className="font-poppins text-5xl md:text-7xl font-bold text-center text-slate-900 mb-8">
             This is PLATEO
-          </h2>
+          </h2>*/
 
           <div className="w-full max-w-6xl flex flex-row gap-5" style={{ height: "600px" }}>
             {featureCards.map((card, i) => (
@@ -283,7 +283,7 @@ export default function UserLanding() {
           />
 
           <h1 className="font-poppins text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-6">
-            Fancy a dinner? With us it is<br />
+            Fancy a dinner? Have it<br />
             <span
               className={`text-primary inline-block transition-all duration-600 whitespace-nowrap ${animating ? "opacity-0 translate-y-8" : "opacity-100 translate-y-0"}`}
             >
