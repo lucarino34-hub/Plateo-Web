@@ -475,7 +475,7 @@ export default function UserLanding() {
               <div className="relative w-[220px] sm:w-[260px] md:w-[300px] rounded-[2rem] sm:rounded-[2.5rem] border-[5px] sm:border-[6px] border-gray-900 bg-gray-900 shadow-2xl">
                 <div className="rounded-[2rem] overflow-hidden">
                   <Image
-                    src="/benefits/PLATEO.png"
+                    src="/benefits/fotoapp.png"
                     alt="Plateo app"
                     width={300}
                     height={650}
