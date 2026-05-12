@@ -5,8 +5,8 @@ import Image from "next/image";
 
 const carouselTexts = [
   "fully planned",
-  "already setteled",
-  "zero stress",
+  "setteled in advance",
+  "with zero stress",
 ];
 
 const featureCards = [
@@ -407,11 +407,11 @@ export default function UserLanding() {
                 </svg>
                 <h3 className="font-bold text-xl md:text-3xl text-slate-900 mb-2 md:mb-3 leading-tight">Cuentas claras, sobremesa larga.</h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-5">
-                  Adiós al lío de pagar: una experiencia cómoda para grupos, equipos y comidas de trabajo.
+                  Goodby to onsite settelments: una experiencia cómoda para grupos, equipos y comidas de trabajo.
                 </p>
-                <p className="text-muted-foreground text-sm font-semibold transition-colors duration-300 group-hover:text-orange-500">
+                /*<p className="text-muted-foreground text-sm font-semibold transition-colors duration-300 group-hover:text-orange-500">
                   Apúntate a la beta y pruébalo antes.
-                </p>
+                </p>*/
               </div>
               <div className="h-40 md:h-56 overflow-hidden">
                 <Image
